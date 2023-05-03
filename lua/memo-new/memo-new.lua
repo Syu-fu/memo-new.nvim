@@ -1,7 +1,7 @@
 local opts = require('memo-new.config').options
 
 return function()
-  local title = vim.ui.input('Title: ')
+  local title = vim.fn.input('Title: ')
   vim.fn.jobstart('memo new ' .. title)
   if title ~= '' then
     title = '-' .. title
