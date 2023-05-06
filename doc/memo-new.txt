@@ -1,0 +1,64 @@
+*memo-new.txt* memo-new.nvim
+
+Author:  Syu-fu <https://github.com/Syu-fu>
+License: MIT License
+
+Table of Contents                |memo-new-toc|
+  1. Introduction                |memo-new-introduction|
+  2. Installation                |memo-new-installation|
+  3. Usage                       |memo-new-usage|
+  4. Configuration               |memo-new-configuration|
+  5. Dependencies                |memo-new-dependencies|
+
+==============================================================================
+1. Introduction                                             *memo-new-introduction*
+
+Memo-New.nvim is a Neovim plugin that serves as a Lua wrapper for the `memo new`
+command provided by the mattn/memo command line interface (CLI) tool. As it is
+written in Lua, it can only be used with Neovim.
+
+==============================================================================
+2. Installation                                             *memo-new-installation*
+
+To install the Memo-New.nvim plugin, you can use the following example
+configuration with a plugin manager like Lazy:
+
+>
+    require("lazy").setup({
+      {
+        "Syu-fu/memo-new.nvim",
+        config = function()
+          require("memo-new").setup({
+            memodir = '~/path/to/your/memo/directory',
+          })
+        end
+      },
+    }
+<
+
+==============================================================================
+3. Usage                                                    *memo-new-usage*
+
+The plugin provides a `MemoNew` command that creates a new memo file using the
+`mattn/memo` CLI tool's `memo new` command. When you run this command, it
+prompts you to enter a title for the new memo. After the memo file is created,
+it is opened in Neovim for editing.
+
+==============================================================================
+4. Configuration                                          *memo-new-configuration*
+
+You can configure the plugin by passing options to the `setup()` function:
+
+>
+    require('memo-new').setup({
+      memodir = '~/path/to/your/memo/directory',
+    })
+<
+
+By default, the memodir option is set to '~/memo'.
+
+==============================================================================
+5. Dependencies                                            *memo-new-dependencies*
+
+This plugin depends on the mattn/memo command line interface (CLI) tool. Please
+make sure to install it before using Memo-New.nvim.
